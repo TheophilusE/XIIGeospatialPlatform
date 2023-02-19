@@ -19,7 +19,7 @@ o
 			s{":app/VisualShader/Parameters.ddl"}
 		}
 		Uuid %DocumentID{u4{14079781079734272156,5684512097425756437}}
-		u4 %Hash{2507419912136987344}
+		u4 %Hash{4182269182830444981}
 		VarArray %MetaInfo{}
 		VarArray %Outputs
 		{
@@ -57,7 +57,7 @@ o
 	p
 	{
 		s %BLEND_MODE{"BLEND_MODE::BLEND_MODE_OPAQUE"}
-		s %CurrenTexture{"{ ae24f2d9-2d7f-465f-b226-6fa407afde04 }"}
+		s %CurrentTexture{"{ ae24f2d9-2d7f-465f-b226-6fa407afde04 }"}
 		f %LerpFactor{0}
 		f %MaskThreshold{0x0000803E}
 		s %MergeTexture{"{ 60b7b90d-6424-4ff3-be2b-7c99d196e378 }"}
@@ -183,7 +183,7 @@ o
 	p
 	{
 		Vec2 %Node::Pos{f{0x806D31C4,0x4AB9A8C3}}
-		s %ParamName{"CurrenTexture"}
+		s %ParamName{"CurrentTexture"}
 		s %Texture{"RebeccaPurple.color"}
 	}
 }
@@ -591,7 +591,7 @@ o
 	u3 %v{1}
 	p
 	{
-		s %Value{"CurrenTexture"}
+		s %Value{"CurrentTexture"}
 	}
 }
 o
@@ -1657,7 +1657,7 @@ o
 		}
 		s %Category{"xiiPropertyCategory::Member"}
 		s %Flags{"xiiPropertyFlags::StandardType|xiiPropertyFlags::Phantom"}
-		s %Name{"CurrenTexture"}
+		s %Name{"CurrentTexture"}
 		s %Type{"xiiString"}
 	}
 }
