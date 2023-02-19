@@ -360,3 +360,5 @@ build*/
 
 Source/ThirdParty/DiligentCore/Graphics/HLSL2GLSLConverterLib/include/GLSLDefinitions_inc.h
 Source/ThirdParty/DiligentCore/Graphics/ShaderTools/include/HLSLDefinitions_inc.fxh
+tsconfig.json
+

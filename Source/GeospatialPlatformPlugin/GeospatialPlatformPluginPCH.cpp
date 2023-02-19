@@ -1,0 +1,1 @@
+#include <GeospatialPlatformPlugin/GeospatialPlatformPluginPCH.h>

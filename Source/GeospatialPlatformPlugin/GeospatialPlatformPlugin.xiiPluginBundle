@@ -1,0 +1,13 @@
+PluginInfo
+{
+	bool %Mandatory{false}
+	string %DisplayName{"GeospatialPlatform"}
+	string %Description{"C++ code for the GeospatialPlatform project."}
+	string %EditorPlugins{}
+	string %EditorEnginePlugins{}
+	string %RuntimePlugins{"GeospatialPlatformPlugin"}
+	string %PackageDependencies{}
+	string %RequiredPlugins{}
+	string %ExclusiveFeatures{"ProjectPlugin"}
+	string %EnabledInTemplates{}
+}

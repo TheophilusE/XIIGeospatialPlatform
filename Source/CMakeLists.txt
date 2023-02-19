@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-project (XIIGeospatialPlatfor VERSION 1.0 LANGUAGES C CXX)
+project (GeospatialPlatform VERSION 1.0 LANGUAGES C CXX)
 
 if(PROJECT_IS_TOP_LEVEL)
 
