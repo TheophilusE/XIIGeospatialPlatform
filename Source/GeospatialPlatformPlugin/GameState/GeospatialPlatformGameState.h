@@ -30,8 +30,8 @@ private:
   virtual void BeforeWorldUpdate() override;
   virtual void AfterWorldUpdate() override;
 
-  xiiTexture2DResourceHandle m_hMonthlyTextures[12][12];
-  const char* m_AssetPaths[12][12] = {};
+  xiiTexture2DResourceHandle m_hMonthlyTextures[11][12];
+  const char* m_AssetPaths[11][12] = {};
 
   xiiInt32 m_iCurrentMonth = 0;
   xiiInt32 m_iCurrentYear = 0;
