@@ -84,7 +84,7 @@ void GeospatialPlatformGameState::BeforeWorldUpdate()
             else
             {
               float fLerpFactor = pMaterial0->GetParameter("LerpFactor").Get<float>();
-              ImGui::DragFloat("LerpFactor", &fLerpFactor, 0.001f, 0.0f, 1.0f);
+              ImGui::DragFloat("LerpFactor", &fLerpFactor, 0.005f, 0.0f, 1.0f);
 
               pMaterial0->SetParameter("LerpFactor", fLerpFactor);
             }
