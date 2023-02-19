@@ -63,6 +63,8 @@ export import Physics = __Physics.Physics;
 
 // AUTO-GENERATED
 import __AllComponents = require("./xii/AllComponents")
+export import BounceComponent = __AllComponents.BounceComponent;
+export import DebugRenderComponent = __AllComponents.DebugRenderComponent;
 export import AgentSteeringComponent = __AllComponents.AgentSteeringComponent;
 export import RenderComponent = __AllComponents.RenderComponent;
 export import AlwaysVisibleComponent = __AllComponents.AlwaysVisibleComponent;
@@ -223,6 +225,7 @@ export import XRTransformSpace = __AllEnums.XRTransformSpace;
 
 // AUTO-GENERATED
 import __AllFlags = require("./xii/AllFlags")
+export import DebugRenderComponentMask = __AllFlags.DebugRenderComponentMask;
 export import ClothSheetFlags = __AllFlags.ClothSheetFlags;
 export import PhysicsShapeType = __AllFlags.PhysicsShapeType;
 

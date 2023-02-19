@@ -39,6 +39,29 @@ declare function __CPP_ComponentProperty_get(component: Component, id: number);
 declare function __CPP_ComponentProperty_set(component: Component, id: number, value);
 declare function __CPP_ComponentFunction_Call(component: Component, id: number, ...args);
 
+export class BounceComponent extends Component
+{
+  public static GetTypeNameHash(): number { return 1980179158; }
+  get Amplitude(): number { return __CPP_ComponentProperty_get(this, 1662330091); }
+  set Amplitude(value: number) { __CPP_ComponentProperty_set(this, 1662330091, value); }
+  get Speed(): number { return __CPP_ComponentProperty_get(this, 2701129422); }
+  set Speed(value: number) { __CPP_ComponentProperty_set(this, 2701129422, value); }
+}
+
+export class DebugRenderComponent extends Component
+{
+  public static GetTypeNameHash(): number { return 2150378396; }
+  SetRandomColor(): void { __CPP_ComponentFunction_Call(this, 1246795232); }
+  get Size(): number { return __CPP_ComponentProperty_get(this, 602693538); }
+  set Size(value: number) { __CPP_ComponentProperty_set(this, 602693538, value); }
+  get Color(): Color { return __CPP_ComponentProperty_get(this, 1975722182); }
+  set Color(value: Color) { __CPP_ComponentProperty_set(this, 1975722182, value); }
+  get Texture(): string { return __CPP_ComponentProperty_get(this, 3130406697); }
+  set Texture(value: string) { __CPP_ComponentProperty_set(this, 3130406697, value); }
+  get Render(): Flags.DebugRenderComponentMask { return __CPP_ComponentProperty_get(this, 1810477408); }
+  set Render(value: Flags.DebugRenderComponentMask) { __CPP_ComponentProperty_set(this, 1810477408, value); }
+}
+
 export class AgentSteeringComponent extends Component
 {
   public static GetTypeNameHash(): number { return 633374792; }
