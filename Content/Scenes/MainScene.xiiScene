@@ -11,7 +11,7 @@ o
 		s %AssetType{"Scene"}
 		VarArray %Dependencies{}
 		Uuid %DocumentID{u4{18217497818633077783,11078140421538288677}}
-		u4 %Hash{3457219449931472023}
+		u4 %Hash{7453705537066125880}
 		VarArray %MetaInfo{}
 		VarArray %Outputs{}
 		VarArray %References
@@ -110,13 +110,13 @@ o
 		{
 			Uuid{u4{12128596341452793731,5747898204907985369}}
 		}
-		s %GlobalKey{""}
+		s %GlobalKey{"ScreenObject"}
 		Vec3 %LocalPosition{f{0,0,0}}
 		Quat %LocalRotation{f{0,0,0,0x0000803F}}
 		Vec3 %LocalScaling{f{0x0000803F,0x00002042,0x0000A041}}
 		f %LocalUniformScaling{0x0000803F}
 		s %Mode{"xiiObjectMode::Automatic"}
-		s %Name{""}
+		s %Name{"ScreenObject"}
 		VarArray %Tags
 		{
 			s{"CastShadow"}

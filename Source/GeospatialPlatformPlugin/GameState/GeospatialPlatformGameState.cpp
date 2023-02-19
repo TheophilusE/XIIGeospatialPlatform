@@ -67,6 +67,44 @@ void GeospatialPlatformGameState::BeforeWorldUpdate()
     ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiCond_FirstUseEver);
     ImGui::Begin("Settings Panel", &window);
 
+    // Update material parameters
+    {
+      xiiGameObject* pScreenObject = nullptr;
+      if (m_pMainWorld->TryGetObjectWithGlobalKey("ScreenObject", pScreenObject))
+      {
+        xiiMeshComponent* pMeshComponent = nullptr;
+        if (pScreenObject->TryGetComponentOfBaseType(pMeshComponent))
+        {
+          xiiMaterialResourceHandle hMaterial0 = pMeshComponent->GetMaterial(0);
+          if (hMaterial0.IsValid())
+          {
+            xiiResourceLock<xiiMaterialResource> pMaterial0(hMaterial0, xiiResourceAcquireMode::AllowLoadingFallback);
+            if (pMaterial0.GetAcquireResult() == xiiResourceAcquireResult::LoadingFallback)
+              xiiLog::Error("Failed to retrieve texture resource from ScreenObject.");
+            else
+            {
+              float fLerpFactor = pMaterial0->GetParameter("LerpFactor").Get<float>();
+              ImGui::DragFloat("LerpFactor", &fLerpFactor, 0.001f, 0.0f, 1.0f);
+
+              pMaterial0->SetParameter("LerpFactor", fLerpFactor);
+            }
+          }
+          else
+          {
+            xiiLog::Error("Screen object material at index 0 is invalid.");
+          }
+        }
+        else
+        {
+          xiiLog::Error("Failed to retrieve mesh component from screen object.");
+        }
+      }
+      else
+      {
+        xiiLog::Error("Failed to retrieve main screen object with global key '{}'.", "ScreenObject");
+      }
+    }
+
     if (ImGui::Button("Toggle Stats"))
     {
       stats = !stats;
