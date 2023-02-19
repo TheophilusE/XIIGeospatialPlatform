@@ -2,10 +2,10 @@
 
 #include <Core/Input/Declarations.h>
 #include <Core/World/Declarations.h>
-#include <GeospatialPlatformPlugin/GeospatialPlatformPluginDLL.h>
 #include <GameEngine/GameApplication/GameApplication.h>
 #include <GameEngine/GameState/FallbackGameState.h>
 #include <GameEngine/GameState/GameState.h>
+#include <GeospatialPlatformPlugin/GeospatialPlatformPluginDLL.h>
 
 class GeospatialPlatformGameState : public xiiFallbackGameState
 {
@@ -29,4 +29,15 @@ private:
   virtual void OnDeactivation() override;
   virtual void BeforeWorldUpdate() override;
   virtual void AfterWorldUpdate() override;
+
+  xiiTexture2DResourceHandle m_hMonthlyTextures[12];
+  const char* m_AssetPaths[12][12] = {};
+
+  xiiUInt32 m_iCurrentMonth = 0;
+  xiiUInt32 m_iCurrentYear = 0;
+
+  float m_fLerpFactor = 1.0f;
+
+  xiiHybridArray<const char*, 12u> m_Months;
+  xiiHybridArray<const char*, 16u> m_Years;
 };
