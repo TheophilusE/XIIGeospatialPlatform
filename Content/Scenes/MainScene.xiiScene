@@ -11,13 +11,13 @@ o
 		s %AssetType{"Scene"}
 		VarArray %Dependencies{}
 		Uuid %DocumentID{u4{18217497818633077783,11078140421538288677}}
-		u4 %Hash{12559724363076433144}
+		u4 %Hash{14289525627419124042}
 		VarArray %MetaInfo{}
 		VarArray %Outputs{}
 		VarArray %References
 		{
 			s{"{ 38ec8c7d-b603-4ee7-927b-0c8580a21fc6 }"}
-			s{"{ 4349e989-20d3-44a2-be61-45f3bc84c5fc }"}
+			s{"{ 723a0d92-f438-41a0-b77e-c1e1e76d1488 }"}
 			s{"{ 8142031f-6a45-4634-83f2-6880ef7e22b9 }"}
 		}
 	}
@@ -36,7 +36,7 @@ o
 		Color %Color{f{0x0000803F,0x0000803F,0x0000803F,0x0000803F}}
 		VarArray %Materials
 		{
-			s{"{ 4349e989-20d3-44a2-be61-45f3bc84c5fc }"}
+			s{"{ 723a0d92-f438-41a0-b77e-c1e1e76d1488 }"}
 		}
 		s %Mesh{"{ 38ec8c7d-b603-4ee7-927b-0c8580a21fc6 }"}
 	}
@@ -177,7 +177,7 @@ o
 			Uuid{u4{16265104986791881250,10792062547431337838}}
 		}
 		s %GlobalKey{""}
-		Vec3 %LocalPosition{f{0x0000A0C0,0,0x00000040}}
+		Vec3 %LocalPosition{f{0x00405AC3,0,0x00000040}}
 		Quat %LocalRotation{f{0,0,0,0x0000803F}}
 		Vec3 %LocalScaling{f{0x0000803F,0x0000803F,0x0000803F}}
 		f %LocalUniformScaling{0x0000803F}
@@ -200,7 +200,6 @@ o
 		VarArray %Children{}
 		VarArray %Components
 		{
-			Uuid{u4{6579054310116699665,10936031704820259778}}
 			Uuid{u4{4672149684653547829,11379781662856729411}}
 		}
 		s %GlobalKey{""}
@@ -245,7 +244,7 @@ o
 		f %ExposureCompensation{0}
 		f %FOV{0x00007042}
 		f %FarPlane{0x00007A44}
-		f %ISO{0x0000C842}
+		f %ISO{0x71BDC542}
 		VarArray %IncludeTags{}
 		s %Mode{"xiiCameraMode::PerspectiveFixedFovY"}
 		f %NearPlane{0x0000803E}
@@ -309,29 +308,6 @@ o
 }
 o
 {
-	Uuid %id{u4{6579054310116699665,10936031704820259778}}
-	s %t{"xiiSkyLightComponent"}
-	u3 %v{3}
-	p
-	{
-		b %Active{1}
-		s %CubeMap{""}
-		VarArray %ExcludeTags{}
-		f %FarPlane{0x0000C842}
-		VarArray %IncludeTags
-		{
-			s{"SkyLight"}
-		}
-		f %Intensity{0xCDCCCC3F}
-		f %NearPlane{0}
-		s %ReflectionProbeMode{"xiiReflectionProbeMode::Dynamic"}
-		f %Saturation{0x0000803F}
-		b %ShowDebugInfo{0}
-		b %ShowMipMaps{0}
-	}
-}
-o
-{
 	Uuid %id{u4{4672149684653547829,11379781662856729411}}
 	s %t{"xiiDirectionalLightComponent"}
 	u3 %v{3}
@@ -341,7 +317,7 @@ o
 		b %CastShadows{0}
 		f %ConstantBias{0xCDCCCC3D}
 		f %FadeOutStart{0xCDCC4C3F}
-		f %Intensity{0x0000A040}
+		f %Intensity{0x0000803F}
 		ColorGamma %LightColor{u1{255,255,255,255}}
 		f %MinShadowRange{0x0000F041}
 		f %NearPlaneOffset{0x0000C842}
@@ -437,23 +413,6 @@ o
 		VarArray %Properties{}
 		s %TypeName{"xiiSceneDocumentRoot"}
 		u3 %TypeVersion{2}
-	}
-}
-o
-{
-	Uuid %id{u4{9759861867649945642,2767165370923051034}}
-	s %t{"xiiReflectedTypeDescriptor"}
-	u3 %v{1}
-	p
-	{
-		VarArray %Attributes{}
-		s %Flags{"xiiTypeFlags::Class|xiiTypeFlags::Minimal"}
-		VarArray %Functions{}
-		s %ParentTypeName{"xiiSettingsComponent"}
-		s %PluginName{"Static"}
-		VarArray %Properties{}
-		s %TypeName{"xiiSkyLightComponent"}
-		u3 %TypeVersion{3}
 	}
 }
 o
@@ -658,23 +617,6 @@ o
 		VarArray %Properties{}
 		s %TypeName{"xiiSceneDocumentSettings"}
 		u3 %TypeVersion{2}
-	}
-}
-o
-{
-	Uuid %id{u4{2549253528611095696,14580648017008598692}}
-	s %t{"xiiReflectedTypeDescriptor"}
-	u3 %v{1}
-	p
-	{
-		VarArray %Attributes{}
-		s %Flags{"xiiTypeFlags::Class|xiiTypeFlags::Abstract|xiiTypeFlags::Minimal"}
-		VarArray %Functions{}
-		s %ParentTypeName{"xiiComponent"}
-		s %PluginName{"Static"}
-		VarArray %Properties{}
-		s %TypeName{"xiiSettingsComponent"}
-		u3 %TypeVersion{1}
 	}
 }
 o
