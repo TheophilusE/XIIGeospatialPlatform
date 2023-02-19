@@ -11,7 +11,7 @@ o
 		s %AssetType{"Scene"}
 		VarArray %Dependencies{}
 		Uuid %DocumentID{u4{18217497818633077783,11078140421538288677}}
-		u4 %Hash{11200795425626187279}
+		u4 %Hash{3457219449931472023}
 		VarArray %MetaInfo{}
 		VarArray %Outputs{}
 		VarArray %References
