@@ -30,11 +30,11 @@ private:
   virtual void BeforeWorldUpdate() override;
   virtual void AfterWorldUpdate() override;
 
-  xiiTexture2DResourceHandle m_hMonthlyTextures[12];
+  xiiTexture2DResourceHandle m_hMonthlyTextures[12][12];
   const char* m_AssetPaths[12][12] = {};
 
-  xiiUInt32 m_iCurrentMonth = 0;
-  xiiUInt32 m_iCurrentYear = 0;
+  xiiInt32 m_iCurrentMonth = 0;
+  xiiInt32 m_iCurrentYear = 0;
 
   float m_fLerpFactor = 1.0f;
 

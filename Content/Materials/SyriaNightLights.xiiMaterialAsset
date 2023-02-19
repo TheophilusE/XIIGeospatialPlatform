@@ -18,7 +18,7 @@ o
 			s{":app/VisualShader/Parameters.ddl"}
 		}
 		Uuid %DocumentID{u4{14079781079734272156,5684512097425756437}}
-		u4 %Hash{7721126613741830940}
+		u4 %Hash{11018603080164226991}
 		VarArray %MetaInfo{}
 		VarArray %Outputs
 		{
@@ -136,7 +136,7 @@ o
 	u3 %v{1}
 	p
 	{
-		Color %Color{f{0x0000803F,0x2A1A393F,0,0x0000803F}}
+		Color %Color{f{0x0000803F,0x80FF3A3F,0,0x0000803F}}
 		Vec2 %Node::Pos{f{0xF7BB3AC3,0x30DF4443}}
 	}
 }

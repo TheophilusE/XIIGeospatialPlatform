@@ -71,13 +71,36 @@ void GeospatialPlatformGameState::OnActivation(xiiWorld* pWorld, const xiiTransf
   m_AssetPaths[0][10] = "{ 4c0a6eb3-b5b0-4cb7-a14b-8f9520a6763f }";
   m_AssetPaths[0][11] = "{ 4ca67a24-3185-44c4-b323-c74678befbc2 }";
 
+  // 2013
+  m_AssetPaths[1][0] = "{ 586d47c2-8fd1-46d9-ae01-d9850624f711 }";
+  m_AssetPaths[1][1] = "{ e25ef403-54fb-47a7-b3a3-c44f42d215d7 }";
+  m_AssetPaths[1][2] = "{ c8fc0635-5265-4360-9587-47e2232b26da }";
+  m_AssetPaths[1][3] = "{ 505b70b4-9399-47e2-b84b-737dd652fcc8 }";
+  m_AssetPaths[1][4] = "{ f624c2a4-8892-4195-b667-f58c36b16345 }";
+  m_AssetPaths[1][5] = "{ 3c5604e5-fcc8-4f64-aaa6-55b67c4189e9 }";
+  m_AssetPaths[1][6] = "{ 3396e1f4-4a28-4e64-b27b-5cd843a76911 }";
+  m_AssetPaths[1][7] = "{ fe4da2a4-7825-4594-a2e8-09acff5efbac }";
+  m_AssetPaths[1][8] = "{ a7a29e9f-ffe2-4c9b-b31e-cd5b0523baf3 }";
+  m_AssetPaths[1][9] = "{ e7a4f481-434a-41de-a1b3-e5baa44c9d6a }";
+  m_AssetPaths[1][10] = "{ e7ab6990-a118-4113-ac48-a0a8392b0267 }";
+  m_AssetPaths[1][11] = "{ 5344faaa-2b8a-40d3-a0e8-75cdfe4254ca }";
 
   // Reload new texture resources for the year
   xiiStringBuilder sData;
 
   for (xiiUInt32 i = 0; i < 12; ++i)
   {
-    m_hMonthlyTextures[i] = xiiResourceManager::LoadResource<xiiTexture2DResource>(m_AssetPaths[m_iCurrentYear][i]);
+    for (xiiUInt32 j = 0; j < 12; ++j)
+    {
+      if (i < 10)
+        sData.Format("Content/Textures/ImageData/bm_vnp46A3_{0}_{1}{2}.png", m_Years[m_iCurrentYear], 0, m_iCurrentMonth);
+      else
+        sData.Format("Content/Textures/ImageData/bm_vnp46A3_{0}_{2}.png", m_Years[m_iCurrentYear], m_iCurrentMonth);
+
+      m_hMonthlyTextures[i][j] = xiiResourceManager::LoadResource<xiiTexture2DResource>(m_AssetPaths[i][j]);
+    }
+    if (i > 1)
+      break;
   }
 }
 
@@ -134,82 +157,42 @@ void GeospatialPlatformGameState::BeforeWorldUpdate()
               xiiLog::Error("Failed to retrieve texture resource from ScreenObject.");
             else
             {
-              xiiInt32 iCurrentYear = m_iCurrentYear;
-              xiiInt32 iCurrentMonth = m_iCurrentMonth;
+              auto year = m_iCurrentYear;
+              auto month = m_iCurrentMonth;
 
-              ImGui::Combo("Current Year", reinterpret_cast<xiiInt32*>(&iCurrentYear), m_Years.GetData(), static_cast<xiiInt32>(m_Years.GetCount()));
-              ImGui::Combo("Current Month", reinterpret_cast<xiiInt32*>(&iCurrentMonth), m_Months.GetData(), static_cast<xiiInt32>(m_Months.GetCount()));
+              ImGui::Combo("Current Year", &m_iCurrentYear, m_Years.GetData(), static_cast<xiiInt32>(m_Years.GetCount()));
+              ImGui::Combo("Current Month", &m_iCurrentMonth, m_Months.GetData(), static_cast<xiiInt32>(m_Months.GetCount()));
               ImGui::SliderFloat("Adjust Weighting", &m_fLerpFactor, 0.0f, 2.0f);
 
-              bool bYearModified = iCurrentYear != m_iCurrentYear;
-              bool bMonthModified = iCurrentMonth != m_iCurrentMonth;
-
-              if (bYearModified)
+              if (year != m_iCurrentYear || month != m_iCurrentMonth)
               {
-                // Reload new texture resources for the year
-                xiiStringBuilder sData;
-
-                for (xiiUInt32 i = 0; i < 12; ++i)
-                {
-                  m_hMonthlyTextures[i] = xiiResourceManager::LoadResource<xiiTexture2DResource>(m_AssetPaths[iCurrentYear][i]);
-                }
-              }
-              else if (bMonthModified)
-              {
-// Reload only new month resource for the year. (Deprecated as we just load the entire texture needed for the year up front.)
-#  if 0
-                for (xiiInt32 i = iCurrentMonth - 1; i < (iCurrentMonth + 1); ++i)
-                {
-                }
-#  endif
+                // Reset the blend. Having the setting remaining on the blend when switching textures is inconvenient.
+                m_fLerpFactor = 1.0f;
               }
 
-              m_iCurrentYear = (xiiUInt32)iCurrentYear;
-              m_iCurrentMonth = (xiiUInt32)iCurrentMonth;
+              pMaterial0->SetTexture2DBinding("CurrentTexture", m_hMonthlyTextures[m_iCurrentYear][m_iCurrentMonth]);
 
-              pMaterial0->SetParameter("LerpFactorOneTwo", m_fLerpFactor < 1.0f ? 1.0f - m_fLerpFactor : 1.0f);
-              pMaterial0->SetParameter("LerpFactorTwoThree", m_fLerpFactor > 1.0f ? m_fLerpFactor - 1.0f : 0.0f);
-
-              pMaterial0->SetTexture2DBinding("CurrentTexture", m_hMonthlyTextures[iCurrentMonth]);
-
-              if (iCurrentMonth - 1 >= 0)
+              if ((m_iCurrentMonth - 1) >= 0)
               {
-                pMaterial0->SetTexture2DBinding("PreviousTexture", m_hMonthlyTextures[iCurrentMonth - 1]);
+                pMaterial0->SetParameter("LerpFactorOneTwo", m_fLerpFactor < 1.0f ? m_fLerpFactor : 1.0f);
+                pMaterial0->SetTexture2DBinding("PreviousTexture", m_hMonthlyTextures[m_iCurrentYear][m_iCurrentMonth - 1]);
               }
               else
               {
-                pMaterial0->SetTexture2DBinding("PreviousTexture", m_hMonthlyTextures[iCurrentMonth]);
+                pMaterial0->SetTexture2DBinding("PreviousTexture", m_hMonthlyTextures[m_iCurrentYear][m_iCurrentMonth]);
                 pMaterial0->SetParameter("LerpFactorOneTwo", 1.0f);
               }
 
-              if (iCurrentMonth + 1 < 12)
+              if (m_iCurrentMonth + 1 < 12)
               {
-                pMaterial0->SetTexture2DBinding("NextTexture", m_hMonthlyTextures[iCurrentMonth + 1]);
+                pMaterial0->SetParameter("LerpFactorTwoThree", m_fLerpFactor > 1.0f ? m_fLerpFactor - 1.0f : 0.0f);
+                pMaterial0->SetTexture2DBinding("NextTexture", m_hMonthlyTextures[m_iCurrentYear][m_iCurrentMonth + 1]);
               }
               else
               {
-                pMaterial0->SetTexture2DBinding("NextTexture", m_hMonthlyTextures[iCurrentMonth]);
+                pMaterial0->SetTexture2DBinding("NextTexture", m_hMonthlyTextures[m_iCurrentYear][m_iCurrentMonth]);
                 pMaterial0->SetParameter("LerpFactorTwoThree", 0.0f);
               }
-
-#  if 0
-              if ((iCurrentMonth - 1) >= 0 && (iCurrentMonth + 1) < 10)
-              {
-                xiiStringBuilder sData;
-
-                sData.Format("GeospatialPlatform/Content/Textures/ImageData/bm_vnp46A3_{0}_{1}{2}.xiiTextureAsset", m_Years[iCurrentYear], 0, iCurrentMonth);
-
-                pMaterial0->SetParameter("CurrentTexture", sData.GetData());
-
-                pMaterial0->SetTexture2DBinding(Ci)
-              }
-#  endif
-#  if 0
-              float fLerpFactor = pMaterial0->GetParameter("LerpFactor").Get<float>();
-              ImGui::SliderFloat("LerpFactor", &fLerpFactor, 0.0f, 1.0f);
-
-              pMaterial0->SetParameter("LerpFactor", fLerpFactor);
-#  endif
             }
           }
           else
@@ -226,6 +209,13 @@ void GeospatialPlatformGameState::BeforeWorldUpdate()
       {
         xiiLog::Error("Failed to retrieve main screen object with global key '{}'.", "ScreenObject");
       }
+    }
+
+    bool bDebug = false;
+    if (bDebug)
+    {
+      ImGui::Text("Current Year: %u", m_iCurrentYear);
+      ImGui::Text("Current Month: %u", m_iCurrentMonth);
     }
 
     if (ImGui::Button("Toggle Stats"))
