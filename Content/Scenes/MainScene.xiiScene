@@ -11,14 +11,16 @@ o
 		s %AssetType{"Scene"}
 		VarArray %Dependencies{}
 		Uuid %DocumentID{u4{18217497818633077783,11078140421538288677}}
-		u4 %Hash{14289525627419124042}
+		u4 %Hash{11200795425626187279}
 		VarArray %MetaInfo{}
 		VarArray %Outputs{}
 		VarArray %References
 		{
 			s{"{ 38ec8c7d-b603-4ee7-927b-0c8580a21fc6 }"}
 			s{"{ 723a0d92-f438-41a0-b77e-c1e1e76d1488 }"}
+			s{"{ 80791115-71a2-4ee3-9cc0-d34c4b6e65c3 }"}
 			s{"{ 8142031f-6a45-4634-83f2-6880ef7e22b9 }"}
+			s{"{ e9e6b167-c18c-4260-9b0e-4cf4503c1463 }"}
 		}
 	}
 }
@@ -32,13 +34,93 @@ o
 	u3 %v{3}
 	p
 	{
-		b %Active{1}
+		b %Active{0}
 		Color %Color{f{0x0000803F,0x0000803F,0x0000803F,0x0000803F}}
 		VarArray %Materials
 		{
 			s{"{ 723a0d92-f438-41a0-b77e-c1e1e76d1488 }"}
 		}
 		s %Mesh{"{ 38ec8c7d-b603-4ee7-927b-0c8580a21fc6 }"}
+	}
+}
+o
+{
+	Uuid %id{u4{15410534996272478130,5085557648221010894}}
+	s %t{"xiiGameObject"}
+	u3 %v{1}
+	p
+	{
+		b %Active{1}
+		VarArray %Children{}
+		VarArray %Components
+		{
+			Uuid{u4{10168491871799842205,5125083310095864935}}
+		}
+		s %GlobalKey{""}
+		Vec3 %LocalPosition{f{0x00008AC1,0,0}}
+		Quat %LocalRotation{f{0,0,0,0x0000803F}}
+		Vec3 %LocalScaling{f{0x0000803F,0x0000803F,0x0000803F}}
+		f %LocalUniformScaling{0x0000803F}
+		s %Mode{"xiiObjectMode::Automatic"}
+		s %Name{"Camera"}
+		VarArray %Tags
+		{
+			s{"CastShadow"}
+		}
+	}
+}
+o
+{
+	Uuid %id{u4{10168491871799842205,5125083310095864935}}
+	s %t{"xiiCameraComponent"}
+	u3 %v{10}
+	p
+	{
+		b %Active{1}
+		f %Aperture{0x0000803F}
+		s %CameraRenderPipeline{""}
+		f %Dimensions{0x00002041}
+		i1 %EditorShortcut{-1}
+		VarArray %ExcludeTags{}
+		f %ExposureCompensation{0}
+		f %FOV{0x00007042}
+		f %FarPlane{0x00007A44}
+		f %ISO{0x0000C842}
+		VarArray %IncludeTags{}
+		s %Mode{"xiiCameraMode::PerspectiveFixedFovY"}
+		f %NearPlane{0x0000803E}
+		s %RenderTarget{""}
+		Vec2 %RenderTargetOffset{f{0,0}}
+		Vec2 %RenderTargetSize{f{0x0000803F,0x0000803F}}
+		b %ShowStats{0}
+		Time %ShutterTime{d{0x000000000000F03F}}
+		s %UsageHint{"xiiCameraUsageHint::MainView"}
+	}
+}
+o
+{
+	Uuid %id{u4{9736316630087192465,5334899675038198543}}
+	s %t{"xiiGameObject"}
+	u3 %v{1}
+	p
+	{
+		b %Active{1}
+		VarArray %Children{}
+		VarArray %Components
+		{
+			Uuid{u4{12128596341452793731,5747898204907985369}}
+		}
+		s %GlobalKey{""}
+		Vec3 %LocalPosition{f{0,0,0}}
+		Quat %LocalRotation{f{0,0,0,0x0000803F}}
+		Vec3 %LocalScaling{f{0x0000803F,0x00002042,0x0000A041}}
+		f %LocalUniformScaling{0x0000803F}
+		s %Mode{"xiiObjectMode::Automatic"}
+		s %Name{""}
+		VarArray %Tags
+		{
+			s{"CastShadow"}
+		}
 	}
 }
 o
@@ -69,6 +151,22 @@ o
 }
 o
 {
+	Uuid %id{u4{12128596341452793731,5747898204907985369}}
+	s %t{"xiiMeshComponent"}
+	u3 %v{3}
+	p
+	{
+		b %Active{1}
+		Color %Color{f{0x0000803F,0x0000803F,0x0000803F,0x0000803F}}
+		VarArray %Materials
+		{
+			s{"{ 80791115-71a2-4ee3-9cc0-d34c4b6e65c3 }"}
+		}
+		s %Mesh{"{ e9e6b167-c18c-4260-9b0e-4cf4503c1463 }"}
+	}
+}
+o
+{
 	Uuid %id{u4{18096612296587978288,6449934965513159559}}
 	s %t{"xiiSceneDocumentRoot"}
 	u3 %v{2}
@@ -79,6 +177,8 @@ o
 		{
 			Uuid{u4{557294422411229965,10424817242176449374}}
 			Uuid{u4{14960180227060104885,5722167181543149420}}
+			Uuid{u4{9736316630087192465,5334899675038198543}}
+			Uuid{u4{15410534996272478130,5085557648221010894}}
 		}
 		Uuid %Settings{u4{14127778732070236973,10607002024264544786}}
 	}
@@ -155,7 +255,7 @@ o
 	u3 %v{4}
 	p
 	{
-		b %Active{1}
+		b %Active{0}
 		s %CubeMap{"{ 8142031f-6a45-4634-83f2-6880ef7e22b9 }"}
 		f %ExposureBias{0x0000803F}
 		b %InverseTonemap{0}
