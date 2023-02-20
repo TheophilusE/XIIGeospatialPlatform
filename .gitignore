@@ -349,7 +349,7 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
-# xii specific
+# XII specific
 /Workspace
 /Output
 AssetCache
@@ -357,8 +357,3 @@ AssetCache
 /buildUWP/
 Source/Engine/xiiBuildInfo.h
 build*/
-
-Source/ThirdParty/DiligentCore/Graphics/HLSL2GLSLConverterLib/include/GLSLDefinitions_inc.h
-Source/ThirdParty/DiligentCore/Graphics/ShaderTools/include/HLSLDefinitions_inc.fxh
-tsconfig.json
-
